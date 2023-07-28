@@ -1,0 +1,32 @@
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# Coverage tools
+lib-cov
+coverage
+.nyc_output
+
+# Dependency directory
+node_modules
+bower_components
+
+# Publish directory
+.publish
+
+# Editor artifacts
+.idea
+.vscode
+
+# Other
+.DS_Store
+.env
+
+# v2 ignores
+.NOTES.md
+.TODO.md
