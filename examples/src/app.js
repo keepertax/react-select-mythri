@@ -15,8 +15,8 @@ import Search from './components/Search';
 
 ReactDOM.render(
 	<div>
-		<Search label="Search" />
-		<States label="States" searchable />
+		<Search label="States" />
+		<States label="Australia" searchable />
 		<Multiselect label="Multiselect" />
 		<NumericSelect label="Numeric Values" />
 		<BooleanSelect label="Boolean Values" />
