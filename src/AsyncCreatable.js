@@ -6,36 +6,37 @@ import Creatable from './Creatable';
 import Select from './Select';
 
 class AsyncCreatableSelect extends React.Component {
-
-	focus () {
+	focus() {
 		this.select.focus();
 	}
 
-	render () {
+	render() {
 		return (
 			<Async {...this.props}>
 				{({ ref, ...asyncProps }) => {
 					const asyncRef = ref;
-					return (<Creatable {...asyncProps} >
-						{({ ref, ...creatableProps }) => {
-							const creatableRef = ref;
-							return this.props.children({
-								...creatableProps,
-								ref: (select) => {
-									creatableRef(select);
-									asyncRef(select);
-									this.select = select;
-								}
-							});
-						}}
-					</Creatable>);
+					return (
+						<Creatable {...asyncProps}>
+							{({ ref, ...creatableProps }) => {
+								const creatableRef = ref;
+								return this.props.children({
+									...creatableProps,
+									ref: (select) => {
+										creatableRef(select);
+										asyncRef(select);
+										this.select = select;
+									},
+								});
+							}}
+						</Creatable>
+					);
 				}}
 			</Async>
 		);
 	}
 }
 
-const defaultChildren = props => <Select {...props} />;
+const defaultChildren = (props) => <Select {...props} />;
 
 AsyncCreatableSelect.propTypes = {
 	children: PropTypes.func.isRequired, // Child function responsible for creating the inner Select component; (props: Object): PropTypes.element

@@ -4,21 +4,25 @@
 
 var babel = require('babel');
 
-module.exports = function (wallaby) { // eslint-disable-line no-unused-vars
+module.exports = function (wallaby) {
+	// eslint-disable-line no-unused-vars
 	return {
-		files: ['src/**/*.js', {
-			pattern: 'testHelpers/*.js',
-			instrument: false
-		}],
-		tests: ['test/*-test.js' ],
+		files: [
+			'src/**/*.js',
+			{
+				pattern: 'testHelpers/*.js',
+				instrument: false,
+			},
+		],
+		tests: ['test/*-test.js'],
 		env: {
 			type: 'node',
-			runner: 'node'
+			runner: 'node',
 		},
 		compilers: {
 			'**/*.js': wallaby.compilers.babel({
-				babel: babel
-			})
-		}
+				babel: babel,
+			}),
+		},
 	};
 };

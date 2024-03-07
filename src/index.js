@@ -26,5 +26,5 @@ export {
 	defaultMenuRenderer,
 	defaultArrowRenderer,
 	defaultClearRenderer,
-	defaultFilterOptions
+	defaultFilterOptions,
 };

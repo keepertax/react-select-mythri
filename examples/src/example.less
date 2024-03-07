@@ -2,28 +2,19 @@
 // Common Example Styles
 // ------------------------------
 
-
-
-
 // import select field styles
 
-@import "../../less/select.less";
-
-
-
+@import '../../less/select.less';
 
 // Constants
 // ------------------------------
 
 // example site
 
-@heading-color:                  black;
-@text-color:                     #333;
-@link-color:                     #007eff;
-@gutter:                         30px;
-
-
-
+@heading-color: black;
+@text-color: #333;
+@link-color: #007eff;
+@gutter: 30px;
 
 // Base
 // ------------------------------
@@ -53,44 +44,54 @@ a {
 	padding: 0 @gutter;
 }
 
-
-
-
 // Headings
 // ------------------------------
 
-h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
 	color: @heading-color;
 	font-weight: 500;
 	line-height: 1;
-	margin-bottom: .66em;
+	margin-bottom: 0.66em;
 	margin-top: 0;
 }
 
-h1, .h1 {
+h1,
+.h1 {
 	font-size: 3em;
 }
-h2, .h2 {
+h2,
+.h2 {
 	font-size: 2em;
 	font-weight: 300;
 }
-h3, .h3 {
+h3,
+.h3 {
 	font-size: 1.25em;
 	// text-transform: uppercase;
 }
-h4, .h4 {
+h4,
+.h4 {
 	font-size: 1em;
 }
-h5, .h5 {
-	font-size: .85em;
+h5,
+.h5 {
+	font-size: 0.85em;
 }
-h6, .h6 {
-	font-size: .75em;
+h6,
+.h6 {
+	font-size: 0.75em;
 }
-
-
-
 
 // Layout
 // ------------------------------
@@ -109,7 +110,9 @@ h6, .h6 {
 	background-color: @link-color;
 	color: mix(white, @link-color, 75%);
 
-	h1, h2, h3 {
+	h1,
+	h2,
+	h3 {
 		color: white;
 	}
 	p {
@@ -183,30 +186,25 @@ h6, .h6 {
 	}
 }
 
-
-
-
 // Form Styles
 // ------------------------------
 
 .checkbox-list {
-	margin-top: .5em;
+	margin-top: 0.5em;
 	overflow: hidden;
 }
 .checkbox-list > .checkbox {
 	clear: left;
 	float: left;
-	margin-top: .5em;
+	margin-top: 0.5em;
 }
 .checkbox-control {
-	margin-right: .5em;
+	margin-right: 0.5em;
 	position: relative;
 	top: -1px;
 }
-.checkbox-label {}
-
-
-
+.checkbox-label {
+}
 
 // Switcher
 // ------------------------------
@@ -235,9 +233,6 @@ h6, .h6 {
 	}
 }
 
-
-
-
 // Miscellaneous
 // ------------------------------
 
@@ -246,7 +241,7 @@ h6, .h6 {
 }
 
 .hint {
-	font-size: .85em;
+	font-size: 0.85em;
 	margin: 15px 0;
 	color: #666;
 }

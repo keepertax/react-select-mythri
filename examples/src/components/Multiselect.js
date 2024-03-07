@@ -21,7 +21,7 @@ var MultiSelectField = createClass({
 	propTypes: {
 		label: PropTypes.string,
 	},
-	getInitialState () {
+	getInitialState() {
 		return {
 			removeSelected: true,
 			disabled: false,
@@ -31,26 +31,31 @@ var MultiSelectField = createClass({
 			rtl: false,
 		};
 	},
-	handleSelectChange (value) {
-		console.log('You\'ve selected:', value);
+	handleSelectChange(value) {
+		console.log("You've selected:", value);
 		this.setState({ value });
 	},
-	toggleCheckbox (e) {
+	toggleCheckbox(e) {
 		this.setState({
 			[e.target.name]: e.target.checked,
 		});
 	},
-	toggleRtl (e) {
+	toggleRtl(e) {
 		let rtl = e.target.checked;
 		this.setState({ rtl });
 	},
 
-	render () {
+	render() {
 		const { crazy, disabled, stayOpen, value } = this.state;
 		const options = crazy ? WHY_WOULD_YOU : FLAVOURS;
 		return (
 			<div className="section">
-				<h3 className="section-heading">{this.props.label} <a href="https://github.com/JedWatson/react-select/tree/v1.x/examples/src/components/Multiselect.js">(Source)</a></h3>
+				<h3 className="section-heading">
+					{this.props.label}{' '}
+					<a href="https://github.com/JedWatson/react-select/tree/v1.x/examples/src/components/Multiselect.js">
+						(Source)
+					</a>
+				</h3>
 				<Select
 					closeOnSelect={!stayOpen}
 					disabled={disabled}
@@ -58,7 +63,7 @@ var MultiSelectField = createClass({
 					onChange={this.handleSelectChange}
 					options={options}
 					placeholder="Select your favourite(s)"
-          removeSelected={this.state.removeSelected}
+					removeSelected={this.state.removeSelected}
 					rtl={this.state.rtl}
 					simpleValue
 					value={value}
@@ -66,29 +71,63 @@ var MultiSelectField = createClass({
 
 				<div className="checkbox-list">
 					<label className="checkbox">
-						<input type="checkbox" className="checkbox-control" name="removeSelected" checked={this.state.removeSelected} onChange={this.toggleCheckbox} />
+						<input
+							type="checkbox"
+							className="checkbox-control"
+							name="removeSelected"
+							checked={this.state.removeSelected}
+							onChange={this.toggleCheckbox}
+						/>
 						<span className="checkbox-label">Remove selected options</span>
 					</label>
 					<label className="checkbox">
-						<input type="checkbox" className="checkbox-control" name="disabled" checked={this.state.disabled} onChange={this.toggleCheckbox} />
+						<input
+							type="checkbox"
+							className="checkbox-control"
+							name="disabled"
+							checked={this.state.disabled}
+							onChange={this.toggleCheckbox}
+						/>
 						<span className="checkbox-label">Disable the control</span>
 					</label>
 					<label className="checkbox">
-						<input type="checkbox" className="checkbox-control" name="crazy" checked={crazy} onChange={this.toggleCheckbox} />
-						<span className="checkbox-label">I don't like Chocolate (disabled the option)</span>
+						<input
+							type="checkbox"
+							className="checkbox-control"
+							name="crazy"
+							checked={crazy}
+							onChange={this.toggleCheckbox}
+						/>
+						<span className="checkbox-label">
+							I don't like Chocolate (disabled the option)
+						</span>
 					</label>
 					<label className="checkbox">
-						<input type="checkbox" className="checkbox-control" name="stayOpen" checked={stayOpen} onChange={this.toggleCheckbox}/>
-						<span className="checkbox-label">Stay open when an Option is selected</span>
+						<input
+							type="checkbox"
+							className="checkbox-control"
+							name="stayOpen"
+							checked={stayOpen}
+							onChange={this.toggleCheckbox}
+						/>
+						<span className="checkbox-label">
+							Stay open when an Option is selected
+						</span>
 					</label>
 					<label className="checkbox">
-						<input type="checkbox" className="checkbox-control" name="rtl" checked={this.state.rtl} onChange={this.toggleCheckbox} />
+						<input
+							type="checkbox"
+							className="checkbox-control"
+							name="rtl"
+							checked={this.state.rtl}
+							onChange={this.toggleCheckbox}
+						/>
 						<span className="checkbox-label">rtl</span>
 					</label>
 				</div>
 			</div>
 		);
-	}
+	},
 });
 
 module.exports = MultiSelectField;

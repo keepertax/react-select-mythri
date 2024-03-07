@@ -20,7 +20,7 @@ ReactDOM.render(
 		<Multiselect label="Multiselect" />
 		<NumericSelect label="Numeric Values" />
 		<BooleanSelect label="Boolean Values" />
-		<CustomRender label="Custom Render Methods"/>
+		<CustomRender label="Custom Render Methods" />
 		<CustomComponents label="Custom Placeholder, Option, Value, and Arrow Components" />
 		<Creatable
 			hint="Enter a value that's NOT in the list, then hit return"

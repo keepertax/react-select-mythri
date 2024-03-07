@@ -22,84 +22,103 @@ var OPTION = { label: 'TEST-LABEL', value: 'TEST-VALUE' };
 
 var Value = require('../src/Value').default;
 
-describe('Value component', function() {
-
+describe('Value component', function () {
 	var props;
 	var value;
 
-	beforeEach(function() {
+	beforeEach(function () {
 		props = {
 			value: OPTION,
-			onRemove: sinon.spy()
+			onRemove: sinon.spy(),
 		};
-		value = TestUtils.renderIntoDocument(<Value {...props}>{OPTION.label}</Value>);
+		value = TestUtils.renderIntoDocument(
+			<Value {...props}>{OPTION.label}</Value>
+		);
 	});
 
-	it('requests its own removal when the remove icon is clicked', function() {
-		var selectItemIcon = TestUtils.findRenderedDOMComponentWithClass(value, 'Select-value-icon');
+	it('requests its own removal when the remove icon is clicked', function () {
+		var selectItemIcon = TestUtils.findRenderedDOMComponentWithClass(
+			value,
+			'Select-value-icon'
+		);
 		TestUtils.Simulate.mouseDown(selectItemIcon);
 		expect(props.onRemove, 'was called');
 	});
 
-	it('requests its own removal when the remove icon is touched', function() {
-		var selectItemIcon = TestUtils.findRenderedDOMComponentWithClass(value, 'Select-value-icon');
+	it('requests its own removal when the remove icon is touched', function () {
+		var selectItemIcon = TestUtils.findRenderedDOMComponentWithClass(
+			value,
+			'Select-value-icon'
+		);
 		TestUtils.Simulate.touchStart(selectItemIcon);
 		TestUtils.Simulate.touchEnd(selectItemIcon);
 		expect(props.onRemove, 'was called');
 	});
 
-	it('ignores its own removal when the remove icon is touched and dragged', function() {
-		var selectItemIcon = TestUtils.findRenderedDOMComponentWithClass(value, 'Select-value-icon');
+	it('ignores its own removal when the remove icon is touched and dragged', function () {
+		var selectItemIcon = TestUtils.findRenderedDOMComponentWithClass(
+			value,
+			'Select-value-icon'
+		);
 		TestUtils.Simulate.touchStart(selectItemIcon);
 		TestUtils.Simulate.touchMove(selectItemIcon);
 		TestUtils.Simulate.touchEnd(selectItemIcon);
 		expect(props.onRemove, 'was not called');
 	});
 
-	describe('without a custom click handler', function() {
-
-		it('presents the given label', function() {
-			var selectItemLabel = TestUtils.findRenderedDOMComponentWithClass(value, 'Select-value-label');
-			expect(ReactDOM.findDOMNode(selectItemLabel), 'to have text', OPTION.label);
+	describe('without a custom click handler', function () {
+		it('presents the given label', function () {
+			var selectItemLabel = TestUtils.findRenderedDOMComponentWithClass(
+				value,
+				'Select-value-label'
+			);
+			expect(
+				ReactDOM.findDOMNode(selectItemLabel),
+				'to have text',
+				OPTION.label
+			);
 		});
-
 	});
 
-	describe('with a custom click handler', function() {
+	describe('with a custom click handler', function () {
 		var valueLabel;
 
-		beforeEach(function() {
+		beforeEach(function () {
 			props = {
 				value: OPTION,
 				onRemove: sinon.spy(),
 				onClick: sinon.spy(),
 			};
-			value = TestUtils.renderIntoDocument(<Value {...props}>{OPTION.label}</Value>);
-			valueLabel = TestUtils.findRenderedDOMComponentWithClass(value, 'Select-value-label');
+			value = TestUtils.renderIntoDocument(
+				<Value {...props}>{OPTION.label}</Value>
+			);
+			valueLabel = TestUtils.findRenderedDOMComponentWithClass(
+				value,
+				'Select-value-label'
+			);
 		});
 
-		it('presents the given label', function() {
+		it('presents the given label', function () {
 			expect(ReactDOM.findDOMNode(valueLabel), 'to have text', OPTION.label);
 		});
 
-		it('calls a custom callback when the anchor is clicked', function() {
+		it('calls a custom callback when the anchor is clicked', function () {
 			TestUtils.Simulate.mouseDown(valueLabel, { button: 0 });
 			expect(props.onClick, 'was called');
 		});
 
-		it('calls a custom callback when the anchor is touched', function() {
+		it('calls a custom callback when the anchor is touched', function () {
 			TestUtils.Simulate.touchEnd(valueLabel);
 			expect(props.onClick, 'was called');
 		});
 
-		it('does not call a custom callback when the anchor is clicked and button !== 0', function() {
+		it('does not call a custom callback when the anchor is clicked and button !== 0', function () {
 			TestUtils.Simulate.mouseDown(valueLabel, { button: 2 });
 			expect(props.onClick, 'was not called');
 		});
-
 	});
 
-	describe('handleMouseDown', function() {
+	describe('handleMouseDown', function () {
 		var event;
 
 		it('should stop propagation when value has href and no onClick in props', function () {
@@ -107,7 +126,9 @@ describe('Value component', function() {
 				value: { href: '1' },
 			};
 			event = { stopPropagation: sinon.spy() };
-			value = TestUtils.renderIntoDocument(<Value {...props}>{OPTION.label}</Value>);
+			value = TestUtils.renderIntoDocument(
+				<Value {...props}>{OPTION.label}</Value>
+			);
 			value.handleMouseDown(event);
 			expect(event.stopPropagation, 'was called once');
 		});
@@ -117,11 +138,11 @@ describe('Value component', function() {
 				value: OPTION,
 			};
 			event = { stopPropagation: sinon.spy() };
-			value = TestUtils.renderIntoDocument(<Value {...props}>{OPTION.label}</Value>);
+			value = TestUtils.renderIntoDocument(
+				<Value {...props}>{OPTION.label}</Value>
+			);
 			value.handleMouseDown(event);
 			expect(event.stopPropagation, 'was not called');
 		});
-
 	});
-
 });

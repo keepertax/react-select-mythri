@@ -6,20 +6,26 @@ const DATA = require('../data/cities');
 
 var CitiesField = createClass({
 	displayName: 'CitiesField',
-	getInitialState () {
+	getInitialState() {
 		return {};
 	},
-	updateValue (newValue) {
+	updateValue(newValue) {
 		this.setState({
-			selectValue: newValue
+			selectValue: newValue,
 		});
 	},
-	render () {
+	render() {
 		var options = DATA.CITIES;
 		return (
 			<div className="section">
-				<h3 className="section-heading">Cities (Large Dataset) <a href="https://github.com/JedWatson/react-select/tree/v1.x/examples/src/components/Virtualized.js">(Source)</a></h3>
-				<VirtualizedSelect ref="citySelect"
+				<h3 className="section-heading">
+					Cities (Large Dataset){' '}
+					<a href="https://github.com/JedWatson/react-select/tree/v1.x/examples/src/components/Virtualized.js">
+						(Source)
+					</a>
+				</h3>
+				<VirtualizedSelect
+					ref="citySelect"
 					options={options}
 					simpleValue
 					clearable
@@ -31,12 +37,19 @@ var CitiesField = createClass({
 					valueKey="name"
 				/>
 				<div className="hint">
-					Uses <a href="https://github.com/bvaughn/react-virtualized">react-virtualized</a> and <a href="https://github.com/bvaughn/react-virtualized-select/">react-virtualized-select</a> to display a list of the world's 1,000 largest cities.
+					Uses{' '}
+					<a href="https://github.com/bvaughn/react-virtualized">
+						react-virtualized
+					</a>{' '}
+					and{' '}
+					<a href="https://github.com/bvaughn/react-virtualized-select/">
+						react-virtualized-select
+					</a>{' '}
+					to display a list of the world's 1,000 largest cities.
 				</div>
 			</div>
 		);
-	}
+	},
 });
-
 
 module.exports = CitiesField;

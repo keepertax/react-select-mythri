@@ -2,7 +2,6 @@
 // Select Menu
 // ------------------------------
 
-
 // wrapper around the menu
 
 .Select-menu-outer {
@@ -10,7 +9,7 @@
 	// element forces the browser to repaint on scroll.  However, if these definitions are split into an
 	// outer and an inner element, the browser is able to optimize the scrolling behavior and does not
 	// have to repaint on scroll.
-	@include border-bottom-radius( $select-input-border-radius );
+	@include border-bottom-radius($select-input-border-radius);
 	background-color: $select-input-bg;
 	border: 1px solid $select-input-border-color;
 	border-top-color: mix($select-input-bg, $select-input-border-color, 50%);
@@ -26,14 +25,12 @@
 	-webkit-overflow-scrolling: touch;
 }
 
-
 // wrapper
 
 .Select-menu {
 	max-height: ($select-menu-max-height - 2px);
 	overflow-y: auto;
 }
-
 
 // options
 
@@ -46,7 +43,7 @@
 	padding: $select-padding-vertical $select-padding-horizontal;
 
 	&:last-child {
-		@include border-bottom-radius( $select-input-border-radius );
+		@include border-bottom-radius($select-input-border-radius);
 	}
 
 	&.is-selected {
@@ -63,9 +60,7 @@
 		color: $select-option-disabled-color;
 		cursor: default;
 	}
-
 }
-
 
 // no results
 

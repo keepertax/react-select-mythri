@@ -7,10 +7,7 @@ import Gravatar from 'react-gravatar';
 const USERS = require('../data/users');
 const GRAVATAR_SIZE = 15;
 
-const stringOrNode = PropTypes.oneOfType([
-	PropTypes.string,
-	PropTypes.node,
-]);
+const stringOrNode = PropTypes.oneOfType([PropTypes.string, PropTypes.node]);
 
 const GravatarOption = createClass({
 	propTypes: {
@@ -23,19 +20,19 @@ const GravatarOption = createClass({
 		onSelect: PropTypes.func,
 		option: PropTypes.object.isRequired,
 	},
-	handleMouseDown (event) {
+	handleMouseDown(event) {
 		event.preventDefault();
 		event.stopPropagation();
 		this.props.onSelect(this.props.option, event);
 	},
-	handleMouseEnter (event) {
+	handleMouseEnter(event) {
 		this.props.onFocus(this.props.option, event);
 	},
-	handleMouseMove (event) {
+	handleMouseMove(event) {
 		if (this.props.isFocused) return;
 		this.props.onFocus(this.props.option, event);
 	},
-	render () {
+	render() {
 		let gravatarStyle = {
 			borderRadius: 3,
 			display: 'inline-block',
@@ -45,25 +42,31 @@ const GravatarOption = createClass({
 			verticalAlign: 'middle',
 		};
 		return (
-			<div className={this.props.className}
+			<div
+				className={this.props.className}
 				onMouseDown={this.handleMouseDown}
 				onMouseEnter={this.handleMouseEnter}
 				onMouseMove={this.handleMouseMove}
-				title={this.props.option.title}>
-				<Gravatar email={this.props.option.email} size={GRAVATAR_SIZE} style={gravatarStyle} />
+				title={this.props.option.title}
+			>
+				<Gravatar
+					email={this.props.option.email}
+					size={GRAVATAR_SIZE}
+					style={gravatarStyle}
+				/>
 				{this.props.children}
 			</div>
 		);
-	}
+	},
 });
 
 const GravatarValue = createClass({
 	propTypes: {
 		children: PropTypes.node,
 		placeholder: stringOrNode,
-		value: PropTypes.object
+		value: PropTypes.object,
 	},
-	render () {
+	render() {
 		var gravatarStyle = {
 			borderRadius: 3,
 			display: 'inline-block',
@@ -75,12 +78,16 @@ const GravatarValue = createClass({
 		return (
 			<div className="Select-value" title={this.props.value.title}>
 				<span className="Select-value-label">
-					<Gravatar email={this.props.value.email} size={GRAVATAR_SIZE} style={gravatarStyle} />
+					<Gravatar
+						email={this.props.value.email}
+						size={GRAVATAR_SIZE}
+						style={gravatarStyle}
+					/>
 					{this.props.children}
 				</span>
 			</div>
 		);
-	}
+	},
 });
 
 const UsersField = createClass({
@@ -88,18 +95,23 @@ const UsersField = createClass({
 		hint: PropTypes.string,
 		label: PropTypes.string,
 	},
-	getInitialState () {
+	getInitialState() {
 		return {};
 	},
-	setValue (value) {
+	setValue(value) {
 		this.setState({ value });
 	},
-	render () {
+	render() {
 		var placeholder = <span>&#9786; Select User</span>;
 
 		return (
 			<div className="section">
-				<h3 className="section-heading">{this.props.label} <a href="https://github.com/JedWatson/react-select/tree/v1.x/examples/src/components/CustomComponents.js">(Source)</a></h3>
+				<h3 className="section-heading">
+					{this.props.label}{' '}
+					<a href="https://github.com/JedWatson/react-select/tree/v1.x/examples/src/components/CustomComponents.js">
+						(Source)
+					</a>
+				</h3>
 				<Select
 					arrowRenderer={arrowRenderer}
 					onChange={this.setValue}
@@ -108,20 +120,19 @@ const UsersField = createClass({
 					placeholder={placeholder}
 					value={this.state.value}
 					valueComponent={GravatarValue}
-					/>
+				/>
 				<div className="hint">
-					This example implements custom Option and Value components to render a Gravatar image for each user based on their email.
-					It also demonstrates rendering HTML elements as the placeholder.
+					This example implements custom Option and Value components to render a
+					Gravatar image for each user based on their email. It also
+					demonstrates rendering HTML elements as the placeholder.
 				</div>
 			</div>
 		);
-	}
+	},
 });
 
-function arrowRenderer () {
-	return (
-		<span>+</span>
-	);
+function arrowRenderer() {
+	return <span>+</span>;
 }
 
 module.exports = UsersField;

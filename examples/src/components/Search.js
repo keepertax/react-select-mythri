@@ -10,24 +10,26 @@ var SearchField = createClass({
 	propTypes: {
 		label: PropTypes.string,
 	},
-	getInitialState () {
+	getInitialState() {
 		return {
 			selectValue: null,
 		};
 	},
-	updateValue (newValue) {
+	updateValue(newValue) {
 		this.setState({
 			selectValue: newValue,
 		});
 	},
-	render () {
+	render() {
 		var options = STATES.US;
 		return (
 			<div className="section">
 				<h3 className="section-heading">{this.props.label}</h3>
 				<Select
 					id="state-select"
-					ref={(ref) => { this.select = ref; }}
+					ref={(ref) => {
+						this.select = ref;
+					}}
 					onBlurResetsInput={false}
 					onSelectResetsInput={false}
 					autoFocus
@@ -40,8 +42,7 @@ var SearchField = createClass({
 				/>
 			</div>
 		);
-	}
+	},
 });
-
 
 module.exports = SearchField;

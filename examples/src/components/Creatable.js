@@ -7,9 +7,9 @@ var CreatableDemo = createClass({
 	displayName: 'CreatableDemo',
 	propTypes: {
 		hint: PropTypes.string,
-		label: PropTypes.string
+		label: PropTypes.string,
 	},
-	getInitialState () {
+	getInitialState() {
 		return {
 			atTop: true,
 			multi: true,
@@ -17,12 +17,12 @@ var CreatableDemo = createClass({
 			options: [
 				{ value: 'R', label: 'Red' },
 				{ value: 'G', label: 'Green' },
-				{ value: 'B', label: 'Blue' }
+				{ value: 'B', label: 'Blue' },
 			],
-			value: undefined
+			value: undefined,
 		};
 	},
-	handleOnChange (value) {
+	handleOnChange(value) {
 		const { multi } = this.state;
 		if (multi) {
 			this.setState({ multiValue: value });
@@ -30,11 +30,16 @@ var CreatableDemo = createClass({
 			this.setState({ value });
 		}
 	},
-	render () {
+	render() {
 		const { atTop, multi, multiValue, options, value } = this.state;
 		return (
 			<div className="section">
-				<h3 className="section-heading">{this.props.label} <a href="https://github.com/JedWatson/react-select/tree/v1.x/examples/src/components/Creatable.js">(Source)</a></h3>
+				<h3 className="section-heading">
+					{this.props.label}{' '}
+					<a href="https://github.com/JedWatson/react-select/tree/v1.x/examples/src/components/Creatable.js">
+						(Source)
+					</a>
+				</h3>
 				<Select.Creatable
 					multi={multi}
 					options={options}
@@ -85,7 +90,7 @@ var CreatableDemo = createClass({
 				</div>
 			</div>
 		);
-	}
+	},
 });
 
 module.exports = CreatableDemo;

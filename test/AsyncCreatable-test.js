@@ -25,37 +25,37 @@ describe('AsyncCreatable', () => {
 		loadOptions = sinon.stub();
 	});
 
-	function createControl (props = {}) {
+	function createControl(props = {}) {
 		props.loadOptions = props.loadOptions || loadOptions;
 		creatableInstance = TestUtils.renderIntoDocument(
 			<Select.AsyncCreatable {...props} />
 		);
 		creatableNode = ReactDOM.findDOMNode(creatableInstance);
 		findAndFocusInputControl();
-	};
+	}
 
-	function findAndFocusInputControl () {
+	function findAndFocusInputControl() {
 		filterInputNode = creatableNode.querySelector('input');
 		if (filterInputNode) {
 			TestUtils.Simulate.focus(filterInputNode);
 		}
-	};
+	}
 
 	it('should create an inner Select', () => {
 		createControl();
 		expect(creatableNode, 'to have attributes', {
-			class: ['Select']
+			class: ['Select'],
 		});
 	});
 
 	it('should render a decorated Select (with passed through properties)', () => {
 		createControl({
 			inputProps: {
-				className: 'foo'
-			}
+				className: 'foo',
+			},
 		});
 		expect(creatableNode.querySelector('.Select-input'), 'to have attributes', {
-			class: ['foo']
+			class: ['foo'],
 		});
 	});
 

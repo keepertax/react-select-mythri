@@ -1,19 +1,20 @@
-<!doctype html>
+<!DOCTYPE html>
 <head>
 	<title>react-select umd example</title>
-	<link rel="stylesheet" href="example.css">
+	<link rel="stylesheet" href="example.css" />
 </head>
 <body>
 	<div class="container">
-		<h1 style="margin-top: 40px;">React Select</h1>
+		<h1 style="margin-top: 40px">React Select</h1>
 		<h2>Standalone (UMD) Bulid</h2>
 		<div>For usage without browserify / rollup / webpack</div>
-		<div id="select" style="margin: 20px 0;"></div>
-		<div class="footer">
-			Copyright &copy; Jed Watson 2018. MIT Licensed.
-		</div>
+		<div id="select" style="margin: 20px 0"></div>
+		<div class="footer">Copyright &copy; Jed Watson 2018. MIT Licensed.</div>
 	</div>
-	<script src="https://unpkg.com/babel-standalone@6/babel.min.js" charset="utf-8"></script>
+	<script
+		src="https://unpkg.com/babel-standalone@6/babel.min.js"
+		charset="utf-8"
+	></script>
 	<script src="https://unpkg.com/react@15.6.1/dist/react.js"></script>
 	<script src="https://unpkg.com/react-dom@15.6.1/dist/react-dom.js"></script>
 	<script src="https://unpkg.com/prop-types@15.5.10/prop-types.js"></script>
@@ -27,18 +28,17 @@
 			{ label: 'Three', value: 3 },
 		];
 		class App extends React.Component {
-			state = { value: '' }
+			state = { value: '' };
 			updateValue = (value) => {
 				this.setState({ value });
-			}
-			render () {
+			};
+			render() {
 				const { value } = this.state;
-				return <Select options={options} onChange={this.updateValue} value={value} />
+				return (
+					<Select options={options} onChange={this.updateValue} value={value} />
+				);
 			}
-		};
-		ReactDOM.render(
-			<App />,
-			document.getElementById('select')
-		);
+		}
+		ReactDOM.render(<App />, document.getElementById('select'));
 	</script>
 </body>

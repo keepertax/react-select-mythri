@@ -21,7 +21,7 @@ const expect = unexpected
 
 describe('Option component', () => {
 	let onFocus, onSelect, onUnfocus, instance, node;
-	const createOption = props => {
+	const createOption = (props) => {
 		onFocus = sinon.spy();
 		onSelect = sinon.spy();
 		onUnfocus = sinon.spy();
@@ -32,7 +32,7 @@ describe('Option component', () => {
 				onSelect={onSelect}
 				onUnfocus={onUnfocus}
 				{...props}
-				/>
+			/>
 		);
 
 		return instance;
@@ -46,8 +46,8 @@ describe('Option component', () => {
 			option: {
 				title: 'testitem',
 				label: 'testitem',
-				className: 'Option-Class'
-			}
+				className: 'Option-Class',
+			},
 		};
 		instance = createOption(props);
 		node = ReactDOM.findDOMNode(instance);
@@ -74,8 +74,8 @@ describe('Option component', () => {
 			option: {
 				title: 'testitem',
 				label: 'testitem',
-				className: 'Option-Class'
-			}
+				className: 'Option-Class',
+			},
 		};
 		instance = createOption(props);
 		node = ReactDOM.findDOMNode(instance);
@@ -104,7 +104,7 @@ describe('Option component', () => {
 
 	describe('blockEvent', () => {
 		let preventDefault, stopPropagation, openStub;
-		beforeEach(() =>{
+		beforeEach(() => {
 			preventDefault = sinon.spy();
 			stopPropagation = sinon.spy();
 			openStub = sinon.stub(window, 'open');
@@ -128,7 +128,12 @@ describe('Option component', () => {
 			blockEvent(event);
 
 			expect(openStub, 'was called once');
-			expect(openStub, 'was called with', event.target.href, event.target.target);
+			expect(
+				openStub,
+				'was called with',
+				event.target.href,
+				event.target.target
+			);
 		});
 
 		it('should set window.location.href and not call window.open', () => {
@@ -143,7 +148,7 @@ describe('Option component', () => {
 
 			Object.defineProperty(window.location, 'href', {
 				writable: true,
-				value: 'url'
+				value: 'url',
 			});
 
 			expect(window.location.href, 'not to equal', event.target.href);
@@ -166,7 +171,7 @@ describe('Option component', () => {
 
 			Object.defineProperty(window.location, 'href', {
 				writable: true,
-				value: 'url'
+				value: 'url',
 			});
 
 			expect(window.location.href, 'to equal', 'url');
@@ -188,7 +193,7 @@ describe('Option component', () => {
 
 			Object.defineProperty(window.location, 'href', {
 				writable: true,
-				value: 'url'
+				value: 'url',
 			});
 
 			expect(window.location.href, 'to equal', 'url');

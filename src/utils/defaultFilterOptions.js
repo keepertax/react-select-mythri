@@ -1,8 +1,8 @@
 import stripDiacritics from './stripDiacritics';
 import trim from './trim';
 
-const isValid = value => {
-	return typeof (value) !== 'undefined' && value !== null && value !== '';
+const isValid = (value) => {
+	return typeof value !== 'undefined' && value !== null && value !== '';
 };
 
 const filterOptions = (options, filterValue, excludeOptions, props) => {
@@ -14,11 +14,14 @@ const filterOptions = (options, filterValue, excludeOptions, props) => {
 		filterValue = trim(filterValue);
 	}
 
-	if (excludeOptions) excludeOptions = excludeOptions.map(i => i[props.valueKey]);
+	if (excludeOptions)
+		excludeOptions = excludeOptions.map((i) => i[props.valueKey]);
 
-	return options.filter(option => {
-		if (excludeOptions && excludeOptions.indexOf(option[props.valueKey]) > -1) return false;
-		if (props.filterOption) return props.filterOption.call(undefined, option, filterValue);
+	return options.filter((option) => {
+		if (excludeOptions && excludeOptions.indexOf(option[props.valueKey]) > -1)
+			return false;
+		if (props.filterOption)
+			return props.filterOption.call(undefined, option, filterValue);
 		if (!filterValue) return true;
 
 		const value = option[props.valueKey];
@@ -34,13 +37,19 @@ const filterOptions = (options, filterValue, excludeOptions, props) => {
 		let labelTest = hasLabel ? String(label) : null;
 
 		if (props.ignoreAccents) {
-			if (valueTest && props.matchProp !== 'label') valueTest = stripDiacritics(valueTest);
-			if (labelTest && props.matchProp !== 'value') labelTest = stripDiacritics(labelTest);
+			if (valueTest && props.matchProp !== 'label')
+				valueTest = stripDiacritics(valueTest);
+			if (labelTest && props.matchProp !== 'value')
+				labelTest = stripDiacritics(labelTest);
 		}
 
 		return (
-			(valueTest && props.matchProp !== 'label' && valueTest.indexOf(filterValue) >= 0) ||
-			(labelTest && props.matchProp !== 'value' && labelTest.indexOf(filterValue) >= 0)
+			(valueTest &&
+				props.matchProp !== 'label' &&
+				valueTest.indexOf(filterValue) >= 0) ||
+			(labelTest &&
+				props.matchProp !== 'value' &&
+				labelTest.indexOf(filterValue) >= 0)
 		);
 	});
 };

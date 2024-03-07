@@ -21,7 +21,7 @@ const babelOptions = (production) => {
 	};
 	if (production) {
 		result.plugins.push('transform-react-remove-prop-types');
-	};
+	}
 	return result;
 };
 

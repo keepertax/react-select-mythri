@@ -12,7 +12,9 @@
 }
 // "classic" focused styles: maintain for legacy
 .Select-focus-state-classic() {
-	border-color: @select-input-border-focus lighten(@select-input-border-focus, 5%) lighten(@select-input-border-focus, 5%);
+	border-color: @select-input-border-focus
+		lighten(@select-input-border-focus, 5%)
+		lighten(@select-input-border-focus, 5%);
 	box-shadow: @select-input-box-shadow-focus;
 	background: @select-input-bg-focus;
 }
@@ -61,7 +63,8 @@
 	&.is-open > .Select-control {
 		.border-bottom-radius( 0 );
 		background: @select-input-bg;
-		border-color: darken(@select-input-border-color, 10%) @select-input-border-color lighten(@select-input-border-color, 5%);
+		border-color: darken(@select-input-border-color, 10%)
+			@select-input-border-color lighten(@select-input-border-color, 5%);
 
 		// flip the arrow so its pointing up when the menu is open
 		.Select-arrow {
@@ -134,7 +137,8 @@
 
 .Select-control {
 	background-color: @select-input-bg;
-	border-color: lighten(@select-input-border-color, 5%) @select-input-border-color darken(@select-input-border-color, 10%);
+	border-color: lighten(@select-input-border-color, 5%)
+		@select-input-border-color darken(@select-input-border-color, 10%);
 	border-radius: @select-input-border-radius;
 	border: @select-input-border-width solid @select-input-border-color;
 	color: @select-text-color;
@@ -200,15 +204,15 @@
 		margin: 0;
 		outline: none;
 		// padding: 0;
-		line-height: 17px;  /* For IE 8 compatibility */
-		padding: ((@select-input-internal-height - 14) / 2 - 2) 0 ((@select-input-internal-height - 14) / 2 + 2);  /* For IE 8 compatibility */
+		line-height: 17px; /* For IE 8 compatibility */
+		padding: ((@select-input-internal-height - 14) / 2 - 2) 0
+			((@select-input-internal-height - 14) / 2 + 2); /* For IE 8 compatibility */
 		-webkit-appearance: none;
 
 		.is-focused & {
 			cursor: text;
 		}
 	}
-
 }
 
 // fake-hide the input when the control is pseudo-focused
@@ -235,7 +239,6 @@
 	vertical-align: middle;
 }
 
-
 // the little cross that clears the field
 
 .Select-clear-zone {
@@ -261,7 +264,6 @@
 	width: @select-clear-width;
 }
 
-
 // arrow indicator
 
 .Select-arrow-zone {
@@ -282,7 +284,8 @@
 .Select-arrow {
 	border-color: @select-arrow-color transparent transparent;
 	border-style: solid;
-	border-width: @select-arrow-width @select-arrow-width (@select-arrow-width / 2);
+	border-width: @select-arrow-width @select-arrow-width
+		(@select-arrow-width / 2);
 	display: inline-block;
 	height: 0;
 	width: 0;
@@ -290,21 +293,21 @@
 }
 
 .Select-control > *:last-child {
-  padding-right: @select-right-padding;
+	padding-right: @select-right-padding;
 }
 
 .Select--multi .Select-multi-value-wrapper {
-  display: inline-block;
+	display: inline-block;
 }
 .Select .Select-aria-only {
-  position: absolute;
-  display: inline-block;
-  height: 1px;
-  width: 1px;
-  margin: -1px;
-  clip: rect(0,0,0,0);
-  overflow: hidden;
-  float: left;
+	position: absolute;
+	display: inline-block;
+	height: 1px;
+	width: 1px;
+	margin: -1px;
+	clip: rect(0, 0, 0, 0);
+	overflow: hidden;
+	float: left;
 }
 
 // Animation
@@ -313,10 +316,18 @@
 // fade in
 
 @-webkit-keyframes Select-animation-fadeIn {
-	from { opacity: 0; }
-	to { opacity: 1; }
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
 @keyframes Select-animation-fadeIn {
-	from { opacity: 0; }
-	to { opacity: 1; }
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }

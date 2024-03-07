@@ -1,4 +1,3 @@
-
 module.exports = function (html) {
 	if (typeof document !== 'undefined') {
 		return;
@@ -8,6 +7,6 @@ module.exports = function (html) {
 	global.document = jsdom(html || '');
 	global.window = global.document.defaultView;
 	global.navigator = {
-		userAgent: 'JSDOM'
+		userAgent: 'JSDOM',
 	};
 };

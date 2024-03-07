@@ -1,7 +1,7 @@
-export default event => {
+export default (event) => {
 	event.preventDefault();
 	event.stopPropagation();
-	if ((event.target.tagName !== 'A') || !('href' in event.target)) {
+	if (event.target.tagName !== 'A' || !('href' in event.target)) {
 		return;
 	}
 	if (event.target.target) {
