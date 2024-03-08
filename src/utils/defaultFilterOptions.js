@@ -14,14 +14,17 @@ const filterOptions = (options, filterValue, excludeOptions, props) => {
 		filterValue = trim(filterValue);
 	}
 
-	if (excludeOptions)
+	if (excludeOptions) {
 		excludeOptions = excludeOptions.map((i) => i[props.valueKey]);
+	}
 
 	return options.filter((option) => {
-		if (excludeOptions && excludeOptions.indexOf(option[props.valueKey]) > -1)
+		if (excludeOptions && excludeOptions.indexOf(option[props.valueKey]) > -1) {
 			return false;
-		if (props.filterOption)
+		}
+		if (props.filterOption) {
 			return props.filterOption.call(undefined, option, filterValue);
+		}
 		if (!filterValue) return true;
 
 		const value = option[props.valueKey];
@@ -37,10 +40,12 @@ const filterOptions = (options, filterValue, excludeOptions, props) => {
 		let labelTest = hasLabel ? String(label) : null;
 
 		if (props.ignoreAccents) {
-			if (valueTest && props.matchProp !== 'label')
+			if (valueTest && props.matchProp !== 'label') {
 				valueTest = stripDiacritics(valueTest);
-			if (labelTest && props.matchProp !== 'value')
+			}
+			if (labelTest && props.matchProp !== 'value') {
 				labelTest = stripDiacritics(labelTest);
+			}
 		}
 
 		return (

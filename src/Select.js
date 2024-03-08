@@ -67,8 +67,9 @@ const expandValue = (value, props) => {
 		valueType !== 'string' &&
 		valueType !== 'number' &&
 		valueType !== 'boolean'
-	)
+	) {
 		return value;
+	}
 	let { options, valueKey } = props;
 	if (!options) return;
 	for (let i = 0; i < options.length; i++) {
@@ -1046,8 +1047,9 @@ class Select extends React.Component {
 			!valueArray.length ||
 			this.props.disabled ||
 			this.props.isLoading
-		)
+		) {
 			return;
+		}
 		const ariaLabel = this.props.multi
 			? this.props.clearAllText
 			: this.props.clearValueText;
@@ -1219,8 +1221,9 @@ class Select extends React.Component {
 			!options.length &&
 			valueArray.length &&
 			!this.state.inputValue
-		)
+		) {
 			isOpen = false;
+		}
 		const focusedOptionIndex = this.getFocusableOptionIndex(valueArray[0]);
 
 		let focusedOption = null;
