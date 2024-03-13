@@ -10,13 +10,13 @@ import CustomRender from './components/CustomRender';
 import Multiselect from './components/Multiselect';
 import NumericSelect from './components/NumericSelect';
 import BooleanSelect from './components/BooleanSelect';
+import Australia from './components/Australia';
 import States from './components/States';
-import Search from './components/Search';
 
 ReactDOM.render(
 	<div>
-		<Search label="States" />
-		<States label="Australia" searchable />
+		<States label="States" />
+		<Australia label="Australia" searchable />
 		<Multiselect label="Multiselect" />
 		<NumericSelect label="Numeric Values" />
 		<BooleanSelect label="Boolean Values" />
