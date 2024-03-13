@@ -6,7 +6,7 @@ import Select from 'react-select';
 const STATES = require('../data/states');
 
 var AustraliaField = createClass({
-	displayName: 'StatesField',
+	displayName: 'AustraliaField',
 	propTypes: {
 		label: PropTypes.string,
 		searchable: PropTypes.bool,
